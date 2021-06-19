@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/ciklum-task-app/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/ciklum-task-app/static/js/main.b35666a4.chunk.js",
-    "main.js.map": "/ciklum-task-app/static/js/main.b35666a4.chunk.js.map",
-    "runtime-main.js": "/ciklum-task-app/static/js/runtime-main.84a87a65.js",
-    "runtime-main.js.map": "/ciklum-task-app/static/js/runtime-main.84a87a65.js.map",
+    "main.js": "/ciklum-task-app/static/js/main.d4015c16.chunk.js",
+    "main.js.map": "/ciklum-task-app/static/js/main.d4015c16.chunk.js.map",
+    "runtime-main.js": "/ciklum-task-app/static/js/runtime-main.ae06b9c5.js",
+    "runtime-main.js.map": "/ciklum-task-app/static/js/runtime-main.ae06b9c5.js.map",
     "static/css/2.4c51a62d.chunk.css": "/ciklum-task-app/static/css/2.4c51a62d.chunk.css",
-    "static/js/2.7a66cafe.chunk.js": "/ciklum-task-app/static/js/2.7a66cafe.chunk.js",
-    "static/js/2.7a66cafe.chunk.js.map": "/ciklum-task-app/static/js/2.7a66cafe.chunk.js.map",
-    "static/js/3.357f89c8.chunk.js": "/ciklum-task-app/static/js/3.357f89c8.chunk.js",
-    "static/js/3.357f89c8.chunk.js.map": "/ciklum-task-app/static/js/3.357f89c8.chunk.js.map",
+    "static/js/2.131e5006.chunk.js": "/ciklum-task-app/static/js/2.131e5006.chunk.js",
+    "static/js/2.131e5006.chunk.js.map": "/ciklum-task-app/static/js/2.131e5006.chunk.js.map",
+    "static/js/3.cb568199.chunk.js": "/ciklum-task-app/static/js/3.cb568199.chunk.js",
+    "static/js/3.cb568199.chunk.js.map": "/ciklum-task-app/static/js/3.cb568199.chunk.js.map",
     "index.html": "/ciklum-task-app/index.html",
     "static/css/2.4c51a62d.chunk.css.map": "/ciklum-task-app/static/css/2.4c51a62d.chunk.css.map",
     "static/css/main.9d5b29c0.chunk.css.map": "/ciklum-task-app/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.7a66cafe.chunk.js.LICENSE.txt": "/ciklum-task-app/static/js/2.7a66cafe.chunk.js.LICENSE.txt",
+    "static/js/2.131e5006.chunk.js.LICENSE.txt": "/ciklum-task-app/static/js/2.131e5006.chunk.js.LICENSE.txt",
     "static/media/primeicons.css": "/ciklum-task-app/static/media/primeicons.e61f3495.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.84a87a65.js",
+    "static/js/runtime-main.ae06b9c5.js",
     "static/css/2.4c51a62d.chunk.css",
-    "static/js/2.7a66cafe.chunk.js",
+    "static/js/2.131e5006.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.b35666a4.chunk.js"
+    "static/js/main.d4015c16.chunk.js"
   ]
 }
