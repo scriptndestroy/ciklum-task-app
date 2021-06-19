@@ -32,10 +32,10 @@ const Tasks: React.FunctionComponent<TasksProps> = (props: TasksProps) => {
     return (
 
         <div className='p-grid'>
-            <div className="p-col-3 p-lg-2">
+            <div className="p-col-12 p-lg-2">
                 <PanelTask title='To Do' onChange={onChange} tasks={tasks.filter((t: Task) => t.status === 'TD')} />
             </div>
-            <div className="p-col-3 p-lg-2">
+            <div className="p-col-12 p-lg-2">
                 <PanelTask readOnly title='Done' onChange={onChange} tasks={tasks.filter((t: Task) => t.status === 'D')} />
             </div>
         </div>
