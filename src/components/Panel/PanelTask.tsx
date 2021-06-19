@@ -2,7 +2,6 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import { Button } from 'primereact/button';
 import { Panel } from 'primereact/panel';
-// import {Task} from '../../interfaces'
 import 'primereact/resources/primereact.css';
 import React from 'react';
 import DialogTask from '../Dialog/DialogTask';
@@ -10,17 +9,19 @@ import '../../index.css';
 import { Task } from '../../interfaces';
 
 interface PanelTaskProps {
-    tasks?: any[];
+    tasks: Task[];
     title?: string;
+    onChange: (t: Task) => void;
+    readOnly?: boolean;
 }
 
 const PanelTask: React.FunctionComponent<PanelTaskProps> = (props: PanelTaskProps) => {
-    const { title } = props;
-
-    const [tasks, setTasks] = React.useState<Task[]>([]);
+    const { title, tasks, onChange, readOnly } = props;
+    
     const [selectedTask, setSelectedTask] = React.useState<Task>({
         title: '',
-        description: ''
+        description: '',
+        status: ''
     });
     const [openDialog, setOpenDialog] = React.useState<boolean>(false);
 
@@ -29,11 +30,14 @@ const PanelTask: React.FunctionComponent<PanelTaskProps> = (props: PanelTaskProp
         const titleClassName = `${options.titleClassName} p-pl-1`;
 
         return (
+            
             <div className={className}>
                 <span className={titleClassName}>
                     {title}
                 </span>
+                {!readOnly &&
                 <Button label='Add task' id='addTask' icon='pi pi-plus' onClick={onClickAdd} />
+                }                
             </div>
         )
     }
@@ -61,16 +65,8 @@ const PanelTask: React.FunctionComponent<PanelTaskProps> = (props: PanelTaskProp
         setOpenDialog(true);
     }
 
-    const onAdd = (task: Task) => {
-        let update = [] as Task[];
-        if (task.id || task.id === 0) {
-            update = [...tasks];
-            update[task.id] = task;
-        } else {
-            task.id = tasks.length;
-            update = [...tasks, task];
-        }
-        setTasks(update);
+    const onAdd = (task: Task) => {    
+        onChange(task);
         setSelectedTask({} as Task);
         setOpenDialog(false);
     }
