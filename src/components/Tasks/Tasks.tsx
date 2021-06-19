@@ -18,11 +18,11 @@ const Tasks: React.FunctionComponent<TasksProps> = (props: TasksProps) => {
      const onChange = (task: Task) => {
          debugger
         let update = [] as Task[];
-        if (task.id || task.id === 0) {
+        if (task.id) {
             update = [...tasks];
-            update[task.id] = task;
+            update[update.findIndex((t: Task) => t.id === task.id)] = task;
         } else {
-            task.id = tasks.length;
+            task.id = tasks.length === 0 ? 1 : tasks.length;
             update = [...tasks, task];
         }
 
@@ -32,10 +32,10 @@ const Tasks: React.FunctionComponent<TasksProps> = (props: TasksProps) => {
     return (
 
         <div className='p-grid'>
-            <div className="p-col-6 p-lg-3">
+            <div className="p-col-3 p-lg-2">
                 <PanelTask title='To Do' onChange={onChange} tasks={tasks.filter((t: Task) => t.status === 'TD')} />
             </div>
-            <div className="p-col-6 p-lg-3">
+            <div className="p-col-3 p-lg-2">
                 <PanelTask readOnly title='Done' onChange={onChange} tasks={tasks.filter((t: Task) => t.status === 'D')} />
             </div>
         </div>

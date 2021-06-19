@@ -98,6 +98,7 @@ const FormTask = forwardRef(
                   id="title"
                   name="title"
                   value={formTask.title}
+                  maxLength={100}
                   onChange={(e) =>
                     setFormTask({ ...formTask, title: e.currentTarget.value })
                   }
@@ -123,6 +124,7 @@ const FormTask = forwardRef(
                   id="description"
                   name="description"
                   value={formTask.description}
+                  maxLength={300}
                   onChange={(e) =>
                     setFormTask({
                       ...formTask,
@@ -148,8 +150,7 @@ const FormTask = forwardRef(
               <span className="p-float-label">
                 <Dropdown
                   id="status"
-                  name="status"
-                  
+                  name="status"                  
                   options={statusOptions}
                   value={formTask.status}
                   onChange={(e) =>                  

@@ -73,7 +73,7 @@ const PanelTask: React.FunctionComponent<PanelTaskProps> = (props: PanelTaskProp
 
     return (
         <React.Fragment>
-            <DialogTask title='Add Task' task={selectedTask} onSave={(task: Task) => onAdd(task)} onClose={() => { setOpenDialog(false); setSelectedTask({} as Task) }} open={openDialog} />
+            <DialogTask title={selectedTask.id ? 'Edit Task' : 'Add Task'} task={selectedTask} onSave={(task: Task) => onAdd(task)} onClose={() => { setOpenDialog(false); setSelectedTask({} as Task) }} open={openDialog} />
             <Panel headerTemplate={template} className='p-shadow-1 m-mt-1'>
                 {tasks.map((t: Task, i) => {
                     return (

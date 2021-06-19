@@ -4,14 +4,7 @@ export interface UIState {
     showLoading: boolean;    
 }
 
-const initialState = {
-    // breadcrumbs: [],
-    // formSaved: true,
-    // itemBreadcrumbs: "",
-    // message: "",
-    // menuOpened: true,
-    // menuClicked: "",
-    // showMessage: false,
+const initialState = {    
     showLoading: false, 
 }
 
