@@ -15,8 +15,7 @@ const Tasks: React.FunctionComponent<TasksProps> = (props: TasksProps) => {
 
     const [tasks, setTasks] = React.useState<Task[]>([] as Task[]);
 
-     const onChange = (task: Task) => {
-         debugger
+     const onChange = (task: Task) => {         
         let update = [] as Task[];
         if (task.id) {
             update = [...tasks];
