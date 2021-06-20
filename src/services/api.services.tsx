@@ -49,7 +49,7 @@ export default class ApiServices<T> {
       });
   }
 
-  async create(data: any) {
+  async create(data: any) {      
     this.onInit();
     return axios
       .post<T>(`${this.URL}`, data)

@@ -51,7 +51,7 @@ const PanelTask: React.FunctionComponent<PanelTaskProps> = (props: PanelTaskProp
                 <span className={titleClassName}>
                     {title}
                 </span>
-                <Button className='p-button-rounded p-button-text' icon='pi pi-ellipsis-v' onClick={() => onEdit(index)} />
+                <Button className='p-button-rounded p-button-text' style={{ paddingLeft: '17px', paddingRight: '17px'}} icon='pi pi-ellipsis-v' onClick={() => onEdit(index)} />
             </div>
         )
     }

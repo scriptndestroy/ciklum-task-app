@@ -1,46 +1,81 @@
-import React from 'react';
-import 'primeflex/primeflex.css';
-import 'primeicons/primeicons.css';
-import 'primereact/resources/primereact.css';
-import '../../index.css';
-import PanelTask from '../Panel/PanelTask';
-import { Task } from '../../interfaces';
+import React, { useEffect } from "react";
+import "primeflex/primeflex.css";
+import "primeicons/primeicons.css";
+import "primereact/resources/primereact.css";
+import "../../index.css";
+import PanelTask from "../Panel/PanelTask";
+import { Task } from "../../interfaces";
+import { tasksService } from "../../services";
 
-interface TasksProps {    
-    // tasks?: Task[]
+interface TasksProps {
+  // tasks?: Task[]
 }
 
 const Tasks: React.FunctionComponent<TasksProps> = (props: TasksProps) => {
-    // const { tasks } = props;
+  // const { tasks } = props;
 
-    const [tasks, setTasks] = React.useState<Task[]>([] as Task[]);
+  const [tasks, setTasks] = React.useState<Task[]>([] as Task[]);
 
-     const onChange = (task: Task) => {         
-        let update = [] as Task[];
-        if (task.id) {
-            update = [...tasks];
-            update[update.findIndex((t: Task) => t.id === task.id)] = task;
-        } else {
-            task.id = tasks.length === 0 ? 1 : tasks.length;
-            update = [...tasks, task];
-        }
+  useEffect(() => {      
+    getAllTasks();
+  }, []);
 
-        setTasks(update);
-     }
+  const getAllTasks = () => {
+    tasksService.getAll().then((response: Task[]) => {
+      setTasks(response);
+    });
+  };
 
-    return (
+  const addTask = (task: Task) => {
+    tasksService
+      .create(task)
+      .then((response: Task[]) => {
+        setTasks(response);
+      })
+      .catch((e: any) => {
+        console.error(e);
+      });
+  };
 
-        <div className='p-grid'>
-            <div className="p-col-12 p-lg-2">
-                <PanelTask title='To Do' onChange={onChange} tasks={tasks.filter((t: Task) => t.status === 'TD')} />
-            </div>
-            <div className="p-col-12 p-lg-2">
-                <PanelTask readOnly title='Done' onChange={onChange} tasks={tasks.filter((t: Task) => t.status === 'D')} />
-            </div>
-        </div>
+  const updateTask = (task: Task) => {
+    tasksService
+      .update(task)
+      .then((response: Task[]) => {
+        setTasks(response);
+      })
+      .catch((e: any) => {
+        console.error(e);
+      });
+  };
 
+  const onChange = (task: Task) => {
+      debugger
+    if (task.id) {
+      updateTask(task);
+    } else {
+      addTask(task);
+    }
+  };
 
-    )
-}
+  return (
+    <div className="p-grid">
+      <div className="p-col-12 p-lg-2">
+        <PanelTask
+          title="To Do"
+          onChange={onChange}
+          tasks={tasks.filter((t: Task) => t.status === "TD")}
+        />
+      </div>
+      <div className="p-col-12 p-lg-2">
+        <PanelTask
+          readOnly
+          title="Done"
+          onChange={onChange}
+          tasks={tasks.filter((t: Task) => t.status === "D")}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default Tasks;

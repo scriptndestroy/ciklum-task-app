@@ -1,10 +1,11 @@
 import { useFormik } from "formik";
-import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
+import { InputText } from "primereact/inputtext";
 import { classNames } from "primereact/utils";
-import React, { forwardRef, Ref, SyntheticEvent } from "react";
+import React, { forwardRef, Ref, SyntheticEvent, useEffect } from "react";
 import "../../index.css";
 import { Task } from "../../interfaces/index";
+import { tasksService } from "../../services";
 
 export interface RefObjectFormTask {
   onSubmit: () => void;
@@ -17,14 +18,18 @@ interface FormTaskProps {
 }
 
 const FormTask = forwardRef(
-  (props: FormTaskProps, ref: Ref<RefObjectFormTask>) => {
-    const statusOptions: any[] = [
-      { label: "To Do", value: "TD" },
-      { label: "Done", value: "D" },
-    ];
+  (props: FormTaskProps, ref: Ref<RefObjectFormTask>) => {    
     const { onSave, task } = props;
 
     const [formTask, setFormTask] = React.useState<Task>(task || ({} as Task));
+    const [taskStatus, setTaskStatus] = React.useState<any[]>([]);
+
+    useEffect(() => {
+        tasksService.getTaskStatus()
+        .then((response: any[]) => {
+            setTaskStatus(response);
+        })
+    }, []);
 
     const formik = useFormik({
       initialValues: {
@@ -151,7 +156,7 @@ const FormTask = forwardRef(
                 <Dropdown
                   id="status"
                   name="status"                  
-                  options={statusOptions}
+                  options={taskStatus}
                   value={formTask.status}
                   onChange={(e) =>                  
                     setFormTask({ ...formTask, status: e.value })
