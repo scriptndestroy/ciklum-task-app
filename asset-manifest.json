@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ciklum-task-app/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/ciklum-task-app/static/js/main.e90230a6.chunk.js",
-    "main.js.map": "/ciklum-task-app/static/js/main.e90230a6.chunk.js.map",
+    "main.js": "/ciklum-task-app/static/js/main.c2a0146b.chunk.js",
+    "main.js.map": "/ciklum-task-app/static/js/main.c2a0146b.chunk.js.map",
     "runtime-main.js": "/ciklum-task-app/static/js/runtime-main.047ccc2d.js",
     "runtime-main.js.map": "/ciklum-task-app/static/js/runtime-main.047ccc2d.js.map",
     "static/css/2.4c51a62d.chunk.css": "/ciklum-task-app/static/css/2.4c51a62d.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.4c51a62d.chunk.css",
     "static/js/2.c4a97507.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.e90230a6.chunk.js"
+    "static/js/main.c2a0146b.chunk.js"
   ]
 }
